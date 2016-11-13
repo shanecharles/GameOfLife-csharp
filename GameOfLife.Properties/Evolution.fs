@@ -1,4 +1,4 @@
-﻿module World
+﻿module Evolution
 
 open FsCheck
 open GameOfLife
@@ -21,8 +21,8 @@ type SettlementPropertyAttribute () =
 
 let filterY yPos (settlement : Settlement) = settlement.Y = yPos
 let filterX xPos (settlement : Settlement) = settlement.X = xPos
-let numberOfNeighboursOnX x = World.GenerateNeighbours >> Seq.filter (filterX x) >> Seq.length
-let numberOfNeighboursOnY y = World.GenerateNeighbours >> Seq.filter (filterY y) >> Seq.length
+let numberOfNeighboursOnX x = Evolution.GenerateNeighbours >> Seq.filter (filterX x) >> Seq.length
+let numberOfNeighboursOnY y = Evolution.GenerateNeighbours >> Seq.filter (filterY y) >> Seq.length
 
 [<SettlementProperty>]
 let ``A settlement should have three possible neighbours with an X-1 position.`` (s : Settlement) =
@@ -63,11 +63,11 @@ let ``A settlement should have three possible neighbours with a Y+1 position.`` 
 [<SettlementProperty>]
 let ``A settlement should not have itself as a potential neighbour.`` (s : Settlement) =
     let expected = true
-    let result = s |> World.GenerateNeighbours |> Seq.forall (fun n -> n <> s)
+    let result = s |> Evolution.GenerateNeighbours |> Seq.forall (fun n -> n <> s)
     test <@ expected = result @>
 
 [<SettlementProperty>]
 let ``A settlement should have exactly eight potential neighbours.`` (s : Settlement) =
     let expected = 8
-    let result = s |> World.GenerateNeighbours |> Seq.length
+    let result = s |> Evolution.GenerateNeighbours |> Seq.length
     test <@ expected = result @>

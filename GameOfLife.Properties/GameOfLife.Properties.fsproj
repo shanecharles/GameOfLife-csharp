@@ -50,7 +50,7 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="World.fs" />
+    <Compile Include="Evolution.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
     <Compile Include="FsCheckAddin.fs" />
