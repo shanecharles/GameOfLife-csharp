@@ -1,0 +1,8 @@
+bin/
+obj/
+paket.exe
+.fake/
+.nuget/
+packages/
+test/
+*.suo
