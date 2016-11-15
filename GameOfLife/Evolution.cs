@@ -15,16 +15,18 @@ namespace GameOfLife
                     select new Settlement(settlement.X + x, settlement.Y + y)).ToList();
         }
 
-        public IList<Settlement> Evolve(IEnumerable<Settlement> settlements)
+        public static IList<Settlement> Evolve(IEnumerable<Settlement> settlements)
         {
             var oldWorld = new HashSet<Settlement>(settlements);
             var settlementAndNeighbourCounts = oldWorld.SelectMany(Evolution.GenerateNeighbours)
-                                               .GroupBy(s => s)
-                                               .Select(gs => new {Settlement = gs.Key, NeighbourCount = gs.Count()});
+                                               .GroupBy(s => new {s.X, s.Y})
+                                               .Select(gs => new { Settlement = new Settlement(gs.Key.X, gs.Key.Y), NeighbourCount = gs.Count() });
+
+
             var evolution = settlementAndNeighbourCounts.Where(sn =>
-                                sn.NeighbourCount == 3 
-                                || (sn.NeighbourCount == 2 && oldWorld.Contains(sn.Settlement)))
-                            .Select(sn => sn.Settlement)
+                                sn.NeighbourCount == 3 || 
+                                (sn.NeighbourCount == 2 && oldWorld.Contains(sn.Settlement)))//oldWorld.Any(s => s.Equals(sn.Settlement))))
+                            .Select(sn => new Settlement(sn.Settlement.X, sn.Settlement.Y))
                             .ToList();
             return evolution;
         }

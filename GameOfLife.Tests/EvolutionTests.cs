@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace GameOfLife.Tests
@@ -11,6 +12,30 @@ namespace GameOfLife.Tests
         {
             var potentialNeighbours = Evolution.GenerateNeighbours(settlement);
             Assert.AreEqual(8, potentialNeighbours.Count());
+        }
+
+        [Test]
+        public void A_non_settlement_with_three_neighbours_will_become_alive_after_evolution()
+        {
+            var expected = new Settlement(1,1);
+            var evolution = Evolution.Evolve(new List<Settlement> {new Settlement(0,1), new Settlement(2,1), new Settlement(1,2)});
+            Assert.Contains(expected, evolution.ToList());
+        }
+
+        [Test]
+        public void A_settlement_with_two_neighbours_will_live_through_evolution()
+        {
+            var expected = new Settlement(1,1);
+            var evolution = Evolution.Evolve(new List<Settlement> {new Settlement(0,1), expected, new Settlement(1,2)});
+            Assert.Contains(expected, evolution.ToList());
+        }
+
+        [Test]
+        public void A_settlement_with_three_neighbours_will_live_through_evolution()
+        {
+            var expected = new Settlement(1,1);
+            var evolution = Evolution.Evolve(new List<Settlement> {new Settlement(0,1), expected, new Settlement(2,1), new Settlement(1,2)});
+            Assert.Contains(expected, evolution.ToList());
         }
 
         [Test]
