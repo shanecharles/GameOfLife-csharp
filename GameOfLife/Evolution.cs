@@ -25,7 +25,7 @@ namespace GameOfLife
 
             var evolution = settlementAndNeighbourCounts.Where(sn =>
                                 sn.NeighbourCount == 3 || 
-                                (sn.NeighbourCount == 2 && oldWorld.Contains(sn.Settlement)))//oldWorld.Any(s => s.Equals(sn.Settlement))))
+                                (sn.NeighbourCount == 2 && oldWorld.Contains(sn.Settlement)))
                             .Select(sn => new Settlement(sn.Settlement.X, sn.Settlement.Y))
                             .ToList();
             return evolution;
