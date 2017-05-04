@@ -7,12 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "GameOfLife\Ga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Tests", "GameOfLife.Tests\GameOfLife.Tests.csproj", "{D2CD915F-8E40-477F-B49D-CC78811E951B}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GameOfLife.Properties", "GameOfLife.Properties\GameOfLife.Properties.fsproj", "{188BE584-CCB3-4751-ACDD-5A27EC0DA5A1}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{679176DE-F18F-405C-89F1-F1A98697A2A9}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GameOfLife.Properties", "GameOfLife.Properties\GameOfLife.Properties.fsproj", "{188BE584-CCB3-4751-ACDD-5A27EC0DA5A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
