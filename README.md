@@ -16,4 +16,4 @@ This is a C# solution to [Conway's Game of Life](https://en.wikipedia.org/wiki/C
 
 ### Running the Tests:
 
-Open the sln in Visual Studio, restore the nuget packages, and run the tests.
+Open the `GameOfLife.sln` in Visual Studio 2015, restore the nuget packages, and run the tests.
