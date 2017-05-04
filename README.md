@@ -2,8 +2,8 @@
 
 This is a C# solution to [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-The rules are as follows:
 
+### The rules:
 
 1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
 
@@ -13,5 +13,7 @@ The rules are as follows:
 
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
+
+### Running the Tests:
 
 Open the sln in Visual Studio, restore the nuget packages, and run the tests.
