@@ -22,12 +22,12 @@ namespace GameOfLife
                                                .GroupBy(s => new {s.X, s.Y})
                                                .Select(gs => new { Settlement = new Settlement(gs.Key.X, gs.Key.Y), NeighbourCount = gs.Count() });
 
-
             var evolution = settlementAndNeighbourCounts.Where(sn =>
                                 sn.NeighbourCount == 3 || 
                                 (sn.NeighbourCount == 2 && oldWorld.Contains(sn.Settlement)))
                             .Select(sn => new Settlement(sn.Settlement.X, sn.Settlement.Y))
                             .ToList();
+
             return evolution;
         }
     }
